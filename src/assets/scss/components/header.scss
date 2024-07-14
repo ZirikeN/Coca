@@ -1,5 +1,10 @@
 .header{
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-3);
     padding: 26px 0 22px;
+    background: var(--neutral-color-10);
+    transition: var(--transition);
 
     @include mobile{
         padding: 22px 0 18px;
@@ -68,6 +73,7 @@
         background-color: var(--neutral-color-130);
         transform: translateY(8px);
         transition: var(--transition);
+        cursor: pointer;
 
         &::before{
             content: '';
@@ -126,7 +132,13 @@
     &__link{
         position: relative;
         font-weight: 500;
+        line-height: 1.62;
         color: var(--neutral-color-100);
+
+        @include small-tablet{
+            font-size: 20px;
+            line-height: 200%;
+        }
 
         &::after{
             content: '';

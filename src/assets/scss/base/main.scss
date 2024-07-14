@@ -17,6 +17,7 @@ html {
     overflow-x: hidden;
     color: var(--neutral-color-100);
     background-color: var(--neutral-color-10);
+    transition: var(--transition);
 
     &--fixed {
         overflow-y: hidden;
