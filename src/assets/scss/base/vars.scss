@@ -23,14 +23,14 @@
 
     --success-color-70: #E2F8F0B2;
 
+    // overview colors
+
+    --overview-bg-color: #1D1E25;
+
 
     // container
     --container-padding: 15px;
     --container-width: 1200px;
-
-    @include mobile{
-        --container-width: 480px;
-    }
 
     // transition
     --transition: all .2s;
@@ -41,6 +41,18 @@
     --z-index-2: 2;
     --z-index-3: 3;
     --z-index-4: 4;
+
+    @include mini-desktop{
+        --container-width: 1000px;
+    }
+
+    @include tablet{
+        --container-width: 860px;
+    }
+
+    @include mobile{
+        --container-width: 480px;
+    }
 }
 
 [data-theme="dark"]{
@@ -55,4 +67,7 @@
     
     // success colors
     --success-color-70: #E2F8F033;
+
+    // overview colors
+    --overview-bg-color: #18181D;
 }

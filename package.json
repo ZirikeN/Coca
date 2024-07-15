@@ -24,5 +24,9 @@
     "vite-plugin-html-inject": "^1.1.2",
     "vite-plugin-image-optimizer": "^1.1.8",
     "vite-plugin-minify": "^1.5.2"
+  },
+  "dependencies": {
+    "vite-plugin-svg-loader": "^1.0.0",
+    "vite-plugin-svgr": "^4.2.0"
   }
 }
