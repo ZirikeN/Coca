@@ -1,0 +1,58 @@
+.partners{
+    &__container{
+        @include flex-all-between;
+        gap: 30px;
+        padding: 86px 0 64px;
+
+        @include small-tablet{
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        @include mobile{
+            padding: 66px 0 54px;
+        }
+    }
+
+    &__title{
+        max-width: 323px;
+        font-weight: 500;
+        line-height: 1.78;
+        color: #7e8492;
+
+        @include mobile{
+            max-width: 260px;
+        }
+
+        &-num{
+            display: block;
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            color: var(--neutral-color-100);
+
+            @include small-mobile{
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    &__list{
+        @include flex-all-center;
+        gap: 10px 30px;
+        flex-wrap: wrap;
+
+        @include mobile{
+            gap: 10px;
+        }
+    }
+
+    &__item{
+        @include flex-all-center;
+        border-radius: 16px;
+        width: 160px;
+        height: 90px;
+        background-color: #fff;
+    }
+}
