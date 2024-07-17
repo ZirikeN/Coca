@@ -27,6 +27,7 @@
     "vite-plugin-minify": "^1.5.2"
   },
   "dependencies": {
+    "swiper": "^11.1.5",
     "vite-plugin-svg-loader": "^1.0.0",
     "vite-plugin-svgr": "^4.2.0"
   }
