@@ -48,7 +48,7 @@
       gap: 10px;
     }
 
-    @include small-tablet{
+    @include small-tablet {
       display: none;
     }
   }
@@ -61,7 +61,7 @@
     background-color: #fff;
   }
 
-  &__slide.swiper-slide{
+  &__slide.swiper-slide {
     @include flex-all-center;
     overflow: hidden;
     border-radius: 16px;
@@ -69,31 +69,31 @@
     height: 90px;
     background-color: #fff;
 
-    &-img{
+    &-img {
       display: flex;
       align-items: center;
       justify-content: center;
     }
   }
 
-  &__slider{
+  &__slider {
     height: 90px;
   }
 
-  &__slider.swiper{
+  &__slider.swiper {
     display: none;
     width: 600px;
 
-    @include small-tablet{
+    @include small-tablet {
       display: block;
       width: 480px;
     }
 
-    @include mobile{
+    @include mobile {
       width: 370px;
     }
 
-    @include small-mobile{
+    @include small-mobile {
       width: 270px;
     }
   }
