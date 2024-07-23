@@ -3,16 +3,17 @@
     @include flex-all-between;
     gap: 30px;
     padding: 108px 0;
+    max-width: 1110px;
+
+    @include tablet{
+      padding: 33px 0;
+      max-width: 800px;
+    }
 
     @include small-tablet {
       flex-direction: column;
       justify-content: center;
-      padding: 88px 0;
       text-align: center;
-    }
-
-    @include mobile {
-      padding: 68px 0;
     }
   }
 
