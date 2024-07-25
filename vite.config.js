@@ -5,9 +5,11 @@ import injectHTML from 'vite-plugin-html-inject';
 
 export default defineConfig({
   root: './src',
+  base: '/Coca/',
   server: {
     port: 3000,
   },
+  publicDir: './src/assets/',
   build: {
     outDir: '../dist',
     emptyOutDir: true,

@@ -222,7 +222,7 @@
         padding-right: 10px;
         width: 20px;
         height: 20px;
-        background: url('../icons/pricing-list-icon.svg');
+        background: url('../assets/icons/pricing-list-icon.svg');
         transform: translateY(2px);
       }
 
@@ -235,7 +235,7 @@
         color: #7e8492;
 
         &::before{
-          background: url('../icons/pricing-list-inaccess-icon.svg');
+          background: url('../assets/icons/pricing-list-inaccess-icon.svg');
         }
       }
     }
