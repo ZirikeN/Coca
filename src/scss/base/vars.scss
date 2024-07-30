@@ -7,6 +7,7 @@
   --neutral-color-50: #AFB3BB;
   --neutral-color-60: #18181d;
   --neutral-color-70: #606060;
+  --neutral-color-80: #35373D;
   --neutral-color-90: #161A34;
   --neutral-color-100: #1d1e25;
   --neutral-color-120: #828282;
@@ -35,6 +36,7 @@
   // container
   --container-padding: 15px;
   --container-width: 1200px;
+  --container-width-blog: 940px;
 
   // transition
   --transition: all 0.2s;
@@ -62,6 +64,7 @@
 [data-theme='dark'] {
   // neutral colors
   --neutral-color-10: #1d1e25;
+  --neutral-color-40: #35373D;
   --neutral-color-90: #18181D;
   --neutral-color-100: #fff;
   --neutral-color-140: #fff;

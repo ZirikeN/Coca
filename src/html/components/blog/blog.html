@@ -1,0 +1,172 @@
+<section class="blog">
+  <div class="container container--blog">
+    <h1 class="blog__title heading-h1">
+      How we perform long-running tasks using AWS services
+    </h1>
+
+    <div class="blog__head">
+      <div class="blog__head-left">
+        <img
+          class="blog__head-left-img"
+          src="./assets/image/testimonials-author1.jpg"
+          alt=""
+        />
+
+        <p class="blog__head-left-text text-p-medium">
+          Renee Wells <br />
+          <span class="text-p-default">Product Designer, Quotient</span>
+        </p>
+      </div>
+
+      <div class="blog__head-right text-p-medium">
+        10 min read November 10, 2023
+      </div>
+    </div>
+
+    <img
+      class="blog__img"
+      src="./assets/image/blog-img.jpg"
+      width="940"
+      height="545"
+      alt=""
+    />
+
+    <p class="blog__text-upper text-p-medium">
+      Depending on the input, this can result in using a lot of processing power
+      and time. The whole process would take approximately 5 seconds to return a
+      result to the client. Keep in mind we’re talking about 1 item, a contact
+      from a contact book. After a while, a new requirement is added. Solution
+      must support companies that manage their contacts organized in files. We
+      agreed to develop a web application that would support upload of dataset
+      files, like .csv. The new web application should support third party
+      integrations. Some of them are the ESP/CRM services, like Mailchimp. User
+      does not need to see the result immediately. System can later notify the
+      user about the result, when the process finishes. This information is the
+      key that we need to leverage on when developing our solution. So here’s
+      how we did it.
+    </p>
+
+    <h3 class="blog__text-title heading-h3">Initial approach</h3>
+
+    <p class="blog__text-bottom text-p-medium">
+      Our initial approach went like this: The web application would read a .csv
+      file line-by-line and submit an array of entries to the backend REST API.
+      Processing is in real time, immediately after the user makes a request for
+      the process to start, he expects a result. Another approach is to apply
+      vertical scaling to AWS architecture. Meaning we used larger, more
+      expensive instances that have more RAM and processing power. This system
+      worked well for smaller datasets, maybe up to 5k entries, but for larger
+      datasets multiple problems arose. This solution is prone to failure due to
+      long request time. Also, because of some 3rd party services that aren’t
+      optimized for large scale loads or they don’t have batch endpoints. 3rd
+      party services also tend to protect their architecture from making a huge
+      bill on their end. The whole process was done in real-time. The request
+      can take a lot of time hanging in there while the backend would do all the
+      work and return the result to the client. The request was limited to 300
+      seconds (at time of writing the article) before AWS would cancel it… Also
+      I need to mention that the user has to wait a few minutes to see the
+      results. They can’t use the app during the process, which makes for a bad
+      user experience.
+    </p>
+
+    <div class="blog__author">
+      <img
+        src="./assets/image/blog-author.jpg"
+        alt=""
+        width="200"
+        height="200"
+        class="blog__author-img"
+      />
+
+      <div class="blog__author-info">
+        <div class="blog__author-info-socials">
+          <a href="#" class="blog__author-info-socials-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="26"
+              viewBox="0 0 15 26"
+              fill="none"
+            >
+              <path
+                d="M13.2281 14.625L13.9375 10H9.5V7C9.5 5.73438 10.1188 4.5 12.1063 4.5H14.125V0.5625C14.125 0.5625 12.2938 0.25 10.5438 0.25C6.8875 0.25 4.5 2.46563 4.5 6.475V10H0.4375V14.625H4.5V25.8062C5.31563 25.9344 6.15 26 7 26C7.85 26 8.68437 25.9344 9.5 25.8062V14.625H13.2281Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+          <a href="#" class="blog__author-info-socials-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="14"
+              viewBox="0 0 16 14"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M7.5208 4.00498L7.55438 4.55861L6.99479 4.49082C4.95791 4.23095 3.17843 3.34965 1.66756 1.86952L0.928908 1.13511L0.73865 1.67744C0.33575 2.88641 0.593158 4.16316 1.43253 5.02186C1.8802 5.4964 1.77948 5.5642 1.00725 5.28173C0.73865 5.19134 0.503625 5.12355 0.481242 5.15744C0.4029 5.23653 0.6715 6.26472 0.884142 6.67147C1.17513 7.2364 1.76828 7.79004 2.4174 8.1177L2.96579 8.37757L2.31668 8.38887C1.68994 8.38887 1.66756 8.40017 1.73471 8.63744C1.95854 9.37186 2.84268 10.1515 3.82755 10.4904L4.52143 10.7277L3.91708 11.0893C3.02175 11.609 1.96973 11.9028 0.917717 11.9254C0.414092 11.9367 0 11.9819 0 12.0158C0 12.1287 1.36538 12.7615 2.15999 13.01C4.54382 13.7445 7.37531 13.4281 9.50173 12.1739C11.0126 11.2813 12.5235 9.50744 13.2286 7.79004C13.6091 6.87485 13.9896 5.20264 13.9896 4.40043C13.9896 3.88069 14.0232 3.8129 14.6499 3.19147C15.0192 2.82991 15.3662 2.43446 15.4333 2.32147C15.5452 2.1068 15.534 2.1068 14.9633 2.29887C14.012 2.63783 13.8777 2.59264 14.3477 2.0842C14.6947 1.72264 15.1088 1.06732 15.1088 0.875237C15.1088 0.841341 14.9409 0.897835 14.7506 0.999523C14.5492 1.11251 14.1015 1.28199 13.7658 1.38368L13.1614 1.57576L12.613 1.2029C12.3108 0.999523 11.8856 0.773549 11.6617 0.705757C11.0909 0.547575 10.218 0.570172 9.70318 0.750952C8.30422 1.25939 7.42008 2.57004 7.5208 4.00498Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+          <a href="#" class="blog__author-info-socials-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="17"
+              viewBox="0 0 18 17"
+              fill="none"
+            >
+              <path
+                d="M4.54597 1.8818C4.52244 0.813602 3.75857 0 2.51815 0C1.27774 0 0.466797 0.813602 0.466797 1.8818C0.466797 2.92787 1.25377 3.7649 2.47108 3.7649H2.49426C3.75857 3.7649 4.54597 2.92787 4.54597 1.8818Z"
+                fill="white"
+              />
+              <path
+                d="M4.30716 5.25195H0.681213V16.1464H4.30716V5.25195Z"
+                fill="white"
+              />
+              <path
+                d="M13.2089 4.99609C15.5949 4.99609 17.3837 6.55352 17.3837 9.89983L17.3836 16.1464H13.7578V10.3178C13.7578 8.85384 13.2331 7.85484 11.9205 7.85484C10.9187 7.85484 10.3221 8.52831 10.06 9.17878C9.96413 9.4119 9.94059 9.73671 9.94059 10.0623V16.1467H6.31421C6.31421 16.1467 6.362 6.27449 6.31421 5.25221H9.94059V6.79532C10.4218 6.05352 11.2838 4.99609 13.2089 4.99609Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+          <a href="#" class="blog__author-info-socials-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.00093 0.466675C6.68339 0.466675 6.39255 0.476808 5.48232 0.518231C4.57386 0.559831 3.95377 0.703655 3.41118 0.914679C2.84993 1.13264 2.37384 1.4242 1.89952 1.89869C1.42485 2.37301 1.13329 2.8491 0.914624 3.41017C0.703066 3.95293 0.559065 4.57321 0.518175 5.4813C0.477464 6.39154 0.466797 6.68256 0.466797 9.0001C0.466797 11.3176 0.477108 11.6076 0.518353 12.5178C0.560131 13.4263 0.703955 14.0464 0.914802 14.589C1.13294 15.1502 1.4245 15.6263 1.89899 16.1006C2.37313 16.5753 2.84922 16.8676 3.41012 17.0855C3.95306 17.2965 4.57333 17.4404 5.4816 17.482C6.39184 17.5234 6.68251 17.5335 8.99986 17.5335C11.3176 17.5335 11.6075 17.5234 12.5178 17.482C13.4262 17.4404 14.047 17.2965 14.59 17.0855C15.151 16.8676 15.6264 16.5753 16.1006 16.1006C16.5752 15.6263 16.8668 15.1502 17.0855 14.5891C17.2952 14.0464 17.4392 13.4261 17.4819 12.518C17.5228 11.6078 17.5335 11.3176 17.5335 9.0001C17.5335 6.68256 17.5228 6.39171 17.4819 5.48148C17.4392 4.57303 17.2952 3.95293 17.0855 3.41035C16.8668 2.8491 16.5752 2.37301 16.1006 1.89869C15.6259 1.42402 15.1512 1.13246 14.5894 0.914679C14.0454 0.703655 13.425 0.559831 12.5165 0.518231C11.6063 0.476808 11.3165 0.466675 8.99826 0.466675H9.00093ZM8.23537 2.00444C8.46258 2.00409 8.71609 2.00444 9.00089 2.00444C11.2793 2.00444 11.5494 2.01262 12.4491 2.05351C13.2811 2.09156 13.7327 2.23058 14.0335 2.34738C14.4317 2.50205 14.7156 2.68694 15.0141 2.98561C15.3128 3.28428 15.4977 3.56873 15.6527 3.96695C15.7695 4.2674 15.9087 4.71896 15.9466 5.55097C15.9875 6.45054 15.9963 6.72076 15.9963 8.99812C15.9963 11.2755 15.9875 11.5457 15.9466 12.4453C15.9085 13.2773 15.7695 13.7288 15.6527 14.0293C15.498 14.4275 15.3128 14.7111 15.0141 15.0096C14.7154 15.3082 14.4319 15.4931 14.0335 15.6478C13.733 15.7651 13.2811 15.9038 12.4491 15.9418C11.5495 15.9827 11.2793 15.9916 9.00089 15.9916C6.72229 15.9916 6.45224 15.9827 5.55268 15.9418C4.72067 15.9034 4.26911 15.7644 3.96813 15.6476C3.5699 15.4929 3.28546 15.3081 2.98679 15.0094C2.68812 14.7107 2.50323 14.427 2.3482 14.0286C2.2314 13.7281 2.0922 13.2766 2.05433 12.4446C2.01344 11.545 2.00527 11.2748 2.00527 8.99598C2.00527 6.7172 2.01344 6.4484 2.05433 5.54884C2.09238 4.71683 2.2314 4.26527 2.3482 3.96447C2.50287 3.56624 2.68812 3.28179 2.98679 2.98312C3.28546 2.68445 3.5699 2.49956 3.96813 2.34454C4.26893 2.2272 4.72067 2.08853 5.55268 2.05031C6.33989 2.01476 6.64496 2.00409 8.23537 2.00231V2.00444ZM13.556 3.42135C12.9906 3.42135 12.532 3.87949 12.532 4.44501C12.532 5.01035 12.9906 5.46902 13.556 5.46902C14.1213 5.46902 14.58 5.01035 14.58 4.44501C14.58 3.87967 14.1213 3.42135 13.556 3.42135ZM9.00095 4.61781C6.58083 4.61781 4.61868 6.57996 4.61868 9.00007C4.61868 11.4202 6.58083 13.3815 9.00095 13.3815C11.4211 13.3815 13.3825 11.4202 13.3825 9.00007C13.3825 6.57996 11.4211 4.61781 9.00095 4.61781ZM9.00091 6.1556C10.5718 6.1556 11.8454 7.42903 11.8454 9.00007C11.8454 10.5709 10.5718 11.8445 9.00091 11.8445C7.42987 11.8445 6.15644 10.5709 6.15644 9.00007C6.15644 7.42903 7.42987 6.1556 9.00091 6.1556Z"
+                fill="white"
+              />
+            </svg>
+          </a>
+          <p class="blog__author-info-socials-txt text-p-default">
+            Share this article
+          </p>
+        </div>
+
+        <p class="blog__author-info-written text-p-default">Written by</p>
+
+        <h5 class="blog__author-info-name heading-h5">Renee Wells</h5>
+
+        <p class="blog__author-info-subname text-p-default">
+          Product Designer, Quotient
+        </p>
+
+        <p class="blog__author-info-text text-p-medium">
+          Skilled in React Native, iOS and backend, Toni has a demonstrated
+          knowledge of the information technology and services industry, with
+          plenty of hands-on experience to back it up.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

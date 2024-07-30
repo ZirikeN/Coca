@@ -72,6 +72,10 @@ label {
   margin: 0 auto;
   padding: 0 var(--container-padding);
   max-width: calc(var(--container-width) + (var(--container-padding) * 2));
+
+  &--blog{
+    max-width: calc(var(--container-width-blog) + (var(--container-padding) * 2));
+  }
 }
 
 .hidden {
