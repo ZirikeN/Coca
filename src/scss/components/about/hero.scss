@@ -1,9 +1,13 @@
 .hero {
   overflow: hidden;
-  padding: 95px 0 80px;
+  padding: 95px 0 168px;
+
+  @include tablet {
+    padding: 75px 0 40px;
+  }
 
   @include small-tablet {
-    padding: 65px 0 40px;
+    padding: 65px 0 20px;
   }
 
   &__container {
@@ -73,6 +77,7 @@
       }
 
       @include small-tablet{
+        gap: 16px;
         flex-direction: column;
       }
     }
