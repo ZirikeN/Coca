@@ -3,7 +3,7 @@
 
   &::before {
     top: 90px;
-    left: -100px;
+    left: -10px;
     width: 551px;
     height: 551px;
     background: #fa7515;
@@ -23,8 +23,8 @@
   }
 
   &::after {
-    right: -400px;
-    bottom: -170px;
+    right: -200px;
+    bottom: -120px;
     width: 525px;
     height: 525px;
     background-color: var(--success-color-70);

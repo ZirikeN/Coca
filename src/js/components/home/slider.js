@@ -48,7 +48,7 @@ export const usePartnersSlider = () => {
   });
 };
 
-export const useTestimonialsSlider = () =>{
+export const useTestimonialsSlider = () => {
   new Swiper('.testimonials__slider', {
     modules: [Navigation, EffectFade],
     slidesPerView: 'auto',
@@ -60,5 +60,32 @@ export const useTestimonialsSlider = () =>{
       nextEl: '.testimonials__btn--next',
       prevEl: '.testimonials__btn--prev',
     },
-  })
-}
+  });
+};
+
+export const useAboutSlider = () => {
+  new Swiper('.hero__slider', {
+    slidesPerView: 1,
+    spaceBetween: 50,
+    centeredSlides: true,
+
+    breakpoints: {
+      1201: {
+        slidesPerView: 2,
+        spaceBetween: -100,
+        centeredSlides: false
+      },
+      993: {
+        slidesPerView: 1,
+        spaceBetween: -430,
+        centeredSlides: false,
+      },
+      769:{
+        slidesPerView: 1.4
+      },
+      577:{
+        spaceBetween: 50,
+      }
+    },
+  });
+};

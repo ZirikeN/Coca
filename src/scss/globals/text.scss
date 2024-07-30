@@ -110,6 +110,7 @@
         height: 1px;
         background-color: var(--neutral-color-100);
         transform: translateY(-43px);
+        transition: var(--transition);
 
         @include small-desktop {
           display: none;

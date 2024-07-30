@@ -1,9 +1,9 @@
 .hero {
   overflow: hidden;
-  padding: 95px 0 128px;
+  padding: 95px 0 80px;
 
   @include small-tablet {
-    padding: 65px 0 88px;
+    padding: 65px 0 40px;
   }
 
   &__container {
@@ -26,20 +26,145 @@
       margin-bottom: 33px;
     }
 
-    @include mobile{
-        margin-bottom: 16px;
+    @include mobile {
+      margin-bottom: 16px;
     }
   }
 
   &__subtitle {
+    margin-bottom: 128px;
     font-weight: 600;
     line-height: 42px;
     letter-spacing: -1px;
+    transition: var(--transition);
+
+    @include small-tablet{
+      margin-bottom: 44px;
+    }
+
+    @include small-mobile{
+      margin-bottom: 20px;
+    }
 
     @include mobile {
       br {
         display: none;
       }
+    }
+  }
+
+  &__info {
+    margin-bottom: 80px;
+
+    @include small-tablet{
+      margin-bottom: 40px;
+    }
+
+    @include small-mobile{
+      margin-bottom: 20px;
+    }
+
+    &-list {
+      @include flex-align-center;
+      gap: 44px;
+
+      @include tablet{
+        gap: 28px;
+      }
+
+      @include small-tablet{
+        flex-direction: column;
+      }
+    }
+
+    &-link {
+      position: relative;
+      font-weight: 500;
+      line-height: 24px;
+      white-space: nowrap;
+      color: #7e8492;
+      transition: var(--transition);
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -2px;
+        left: 0;
+        height: 1px;
+        background-color: var(--neutral-color-100);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+      }
+
+      &:hover {
+        color: var(--neutral-color-100);
+
+        &::after {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &__slider.swiper{
+    overflow: visible;
+  }
+
+  &__slide {
+    @include tablet{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &-image{
+      margin-bottom: 16px;
+      max-width: 515px;
+      max-height: 428px;
+    }
+    
+    &-img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+
+    &-date {
+      margin-bottom: 24px;
+      font-weight: 400;
+      line-height: 21px;
+      color: #7e8492;
+    }
+
+    &-title {
+      margin-bottom: 16px;
+      font-weight: 700;
+      line-height: 40px;
+      letter-spacing: -1px;
+    }
+
+    &-subtitle {
+      max-width: 332px;
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
+      color: #7e8492;
+    }
+  }
+
+  &__slide.swiper-slide {
+    @include tablet{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
   }
 }
