@@ -2,7 +2,8 @@ import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/scss/autoplay';
-import { Navigation, Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css/scrollbar';
+import { Navigation, Autoplay, EffectFade, Scrollbar } from 'swiper/modules';
 
 export const useInsightSlider = () => {
   new Swiper('.insight__slider', {
@@ -111,5 +112,28 @@ export const useArticlesSlider = () => {
       nextEl: '.articles-button-next',
       prevEl: '.articles-button-prev',
     },
+  });
+};
+
+export const useTeamHeroSlider = () => {
+  new Swiper('.hero__slider', {
+    modules: [Scrollbar],
+    slidesPerView: 1,
+    spaceBetween: 22,
+
+    scrollbar: {
+      el: ".hero__scrollbar",
+    },
+
+    breakpoints: {
+      993:{
+        slidesPerView: 3,
+        spaceBetween: 32,
+      },
+      769:{
+        slidesPerView: 2,
+        spaceBetween: 22,
+      },
+    }
   });
 };
