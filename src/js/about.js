@@ -4,7 +4,9 @@ import '/scss/about.scss';
 import { useTheme } from './components/theme';
 import { useBurger } from './components/burger';
 import { useAboutSlider } from './components/home/slider';
+import { useArticlesSlider } from './components/home/slider';
 
 useTheme();
 useBurger();
 useAboutSlider();
+useArticlesSlider();

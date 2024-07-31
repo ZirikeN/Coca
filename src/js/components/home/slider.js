@@ -89,3 +89,27 @@ export const useAboutSlider = () => {
     },
   });
 };
+
+export const useArticlesSlider = () => {
+  new Swiper('.articles__slider', {
+    modules: [Navigation],
+    slidesPerView: 1,
+    spaceBetween: 22,
+
+    breakpoints: {
+      769:{
+        slidesPerView: 3,
+        spaceBetween: 33,
+      },
+      577:{
+        slidesPerView: 2,
+        spaceBetween: 22,
+      }
+    },
+
+    navigation: {
+      nextEl: '.articles-button-next',
+      prevEl: '.articles-button-prev',
+    },
+  });
+};
