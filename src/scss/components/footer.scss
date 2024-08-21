@@ -3,7 +3,7 @@
   color: #fff;
   background-color: var(--overview-bg-color);
 
-  @include mobile{
+  @include mobile {
     padding-top: 62px;
   }
 
@@ -18,14 +18,14 @@
       margin-bottom: 84px;
     }
 
-    @include mobile{
-        align-items: center;
-        margin-bottom: 64px;
-        text-align: center;
+    @include mobile {
+      align-items: center;
+      margin-bottom: 64px;
+      text-align: center;
     }
 
-    @include small-mobile{
-        margin-bottom: 44px;
+    @include small-mobile {
+      margin-bottom: 44px;
     }
   }
 
@@ -35,12 +35,12 @@
     font-size: 64px;
     line-height: 1.2;
 
-    @include tablet{
-        font-size: 54px;
+    @include tablet {
+      font-size: 54px;
     }
 
-    @include mobile{
-        font-size: 42px;
+    @include mobile {
+      font-size: 42px;
     }
   }
 
@@ -67,8 +67,8 @@
       align-items: flex-start;
     }
 
-    @include mobile{
-        flex-direction: column-reverse;
+    @include mobile {
+      flex-direction: column-reverse;
     }
 
     &-info {
@@ -125,26 +125,85 @@
       justify-content: space-between;
     }
 
-    @include mobile{
-        gap: 40px 60px;
-        flex-wrap: wrap;
-        justify-content: center;
+    @include mobile {
+      gap: 20px 30px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    @include small-mobile{
-        text-align: center;
+    @include small-mobile {
+      text-align: center;
+    }
+
+    &--desktop {
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: none;
+
+      @include mobile {
+        display: grid;
+      }
     }
   }
 
   &__item {
     &-title {
+      @include flex-all-between;
+      gap: 15px;
+      list-style: none;
       margin-bottom: 24px;
       font-weight: 700;
       line-height: 1.5;
+      cursor: pointer;
+
+      &-icon {
+        position: relative;
+        width: 24px;
+        height: 24px;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          border-radius: 6px;
+          width: 18px;
+          height: 4px;
+          background-color: var(--neutral-color-100);
+        }
+
+        &::after {
+          transform: rotate(90deg);
+          transition: all 0.2s;
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          display: inline-block;
+          border-radius: 6px;
+          width: 18px;
+          height: 4px;
+          background-color: var(--neutral-color-100);
+        }
+      }
+
+      &::-webkit-detalis-marker {
+        display: none !important;
+      }
     }
 
-    @include mobile{
-        min-width: 143px;
+    &[open] &-title-icon::after {
+      transform: rotate(0);
+    }
+
+    @include mobile {
+      min-width: 143px;
+      text-align: center;
     }
   }
 
@@ -202,7 +261,7 @@
         gap: 42px;
       }
 
-      @include mobile{
+      @include mobile {
         gap: 20px;
         flex-direction: column;
         align-items: center;
@@ -217,7 +276,7 @@
         gap: 20px;
       }
 
-      @include small-mobile{
+      @include small-mobile {
         gap: 10px 20px;
         flex-wrap: wrap;
         justify-content: center;
