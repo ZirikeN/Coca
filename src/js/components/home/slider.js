@@ -137,3 +137,23 @@ export const useTeamHeroSlider = () => {
     }
   });
 };
+
+export const useTeamWorkSlider = () => {
+  new Swiper('.workers__slider', {
+    slidesPerView: 1,
+    spaceBetween: 25,
+    centeredSlides: true,
+    loop: true,
+
+    breakpoints: {
+      993:{
+        slidesPerView: 3,
+        spaceBetween: 32,
+        centeredSlides: false,
+      },
+      769:{
+        slidesPerView: 2,
+      }
+    }
+  });
+};

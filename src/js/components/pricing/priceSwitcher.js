@@ -7,23 +7,23 @@ export const usePriceSwitcher = () => {
 
   const priceList = {
     starter: {
-      default: '$' + 120 / 30,
-      witchSale: '$' + 100,
+      default: '$' + 100,
+      witchSale: '$' + 960,
     },
 
     popular: {
-      default: '$' + 1680 / 30,
-      witchSale: '$' + 1400,
+      default: '$' + 1400,
+      witchSale: '$' + 13440,
     },
 
     enterprise: {
-      default: '$' + 2520 / 30,
-      witchSale: '$' + 2100,
+      default: '$' + 2100,
+      witchSale: '$' + 20160,
     },
 
     date: {
-      default: '/mo',
-      witchSale: '/day',
+      default: '/yr',
+      witchSale: '/mo',
     },
   };
 

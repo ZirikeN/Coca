@@ -4,7 +4,9 @@ import '/scss/team.scss';
 import { useTheme } from './components/theme';
 import { useBurger } from './components/burger';
 import { useTeamHeroSlider } from './components/home/slider';
+import { useTeamWorkSlider } from './components/home/slider';
 
 useTheme();
 useBurger();
 useTeamHeroSlider();
+useTeamWorkSlider();

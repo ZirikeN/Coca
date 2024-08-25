@@ -1,0 +1,39 @@
+.advice{
+    padding: 85px 0;
+
+    @include mobile{
+        padding: 45px 0;
+    }
+
+    @include small-mobile{
+        padding: 35px 0;
+    }
+
+    &__container{
+        @include flex-all-between;
+        gap: 18px;
+
+        @include tablet{
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+    }
+
+    &__title{
+        max-width: 480px;
+        font-weight: 600;
+        line-height: 67.2px;
+        letter-spacing: -2px;
+
+        @include small-tablet{
+            line-height: 50px;
+        }
+    }
+
+    &__text{
+        max-width: 480px;
+        font-weight: 600;
+        line-height: 36px;
+    }
+}
